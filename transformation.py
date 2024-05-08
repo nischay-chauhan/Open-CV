@@ -15,4 +15,21 @@ def translate(img , x , y):
 translated = translate(img , 100 , -100)
 cv.imshow('Translated' , translated)
 
+#rotation 
+def rotate(img , angle , rotPoint = None):
+    (height , width) = img.shape[:2]
+    if rotPoint is None:
+        rotPoint = (width // 2 , height // 2)
+    
+    return cv.warpAffine(img , cv.getRotationMatrix2D(rotPoint , angle , 1.0) , (width , height))
+
+rotated = rotate(img , -45)
+cv.imshow('Rotated' , rotated)
+
+#flip 
+def flip(img , flipCode):
+    return cv.flip(img , flipCode)
+
+flipped = flip(img , 0)
+cv.imshow('Flipped' , flipped)
 cv.waitKey(0)
