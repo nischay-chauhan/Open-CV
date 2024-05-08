@@ -1,5 +1,9 @@
 import cv2 as cv
 
+def changeResolution(width , height):
+    capture.set(3 , width)
+    capture.set(4 , height)
+
 
 def rescaleFrame(frame , scale = 0.75):
     width = int(frame.shape[1] * scale)
